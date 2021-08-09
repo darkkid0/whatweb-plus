@@ -1,11 +1,19 @@
 # whatweb-plus
-whatweb bug 修复及功能增强 
 
 使用说明:
 
 痛点重谈-Web指纹识别与解决方案
 
 https://mp.weixin.qq.com/s/lHIJmIWbm8ylK6yjjmmNkg
+
+
+插件需求投递与更新发布:
+
+NOVASEC指纹交流群请联系【NOVASEC】公众号后台加入。
+
+github不定时更新与优化插件
+
+
 
 Whatweb-NOVASEC超级增强版介绍：
 
