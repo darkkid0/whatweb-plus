@@ -6,9 +6,9 @@
 
 插件需求投递与更新发布:
 
-NOVASEC指纹交流群请联系【NOVASEC】公众号后台加入。
+        NOVASEC指纹交流群请联系【NOVASEC】公众号后台加入。
 
-github不定时更新与优化插件
+        github不定时更新与优化插件
 
 
 
