@@ -13,6 +13,8 @@ WhatWeb-plugins-all-202107312109.zip 指纹优化合并
 
 WhatWeb-plugins-all-202108090926.zip 支持shiro识别、其他指纹优化
 
+WhatWeb-plugins-all-202108091957.zip 修复shiro识别判断条件误报-严重
+
 =====================================
 
 插件需求投递与更新发布:
