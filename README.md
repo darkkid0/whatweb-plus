@@ -1,5 +1,5 @@
 # whatweb-plus
-whatweb bug 修复及功能增强
+whatweb bug 修复及功能增强 
 
 使用说明:
 
@@ -7,7 +7,7 @@ whatweb bug 修复及功能增强
 
 https://mp.weixin.qq.com/s/lHIJmIWbm8ylK6yjjmmNkg
 
-Whatweb超级增强版介绍：
+Whatweb-NOVASEC超级增强版介绍：
 
 缺陷1：特征标记【已完善】
 
