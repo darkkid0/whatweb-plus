@@ -9,8 +9,6 @@ https://mp.weixin.qq.com/s/lHIJmIWbm8ylK6yjjmmNkg
 
 Whatweb超级增强版介绍：
 
-根据插件扩展性、匹配规则支持、知名度来选择，我最终选择而来whatweb作为我的指纹识别工具
-
 缺陷1：特征标记【已完善】
 
 whatweb作为一个知名度较高的开源指纹识别工具，其请求头中拥有特定的标志。需要进行修改，使其默认支持动态的请求方式。
@@ -39,13 +37,13 @@ md5值计算出来与实际的md5值不同，对此也进行了修复。
 
 主要合并了以下工具的指纹库：
 
-tidesec所有指纹-已合并
+    tidesec所有指纹-已合并
 
-wappalyzer指纹-已合并
+    wappalyzer指纹-已合并
 
-Ehole+Finger+Fscan+glass红队指纹-已合并
+    Ehole+Finger+Fscan+glass红队指纹-已合并
 
-WAF指纹识别规则-已合并
+    WAF指纹识别规则-已合并
 
 
 
