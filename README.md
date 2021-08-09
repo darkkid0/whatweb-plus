@@ -29,14 +29,11 @@ Whatweb增强版介绍与使用：
 
 ruby下运行必须安装以下模块：
 
-gem install mmh3  
+    gem install mmh3  
+    gem install nokogiri
 
-mmh3是0.5.5.6版本支持favioch hash的附件库
-
-gem install nokogiri
-
-mmh3是0.5.5.7版本解决title插件提取乱码的附件库
-
+    mmh3是0.5.5.7版本解决title插件提取乱码的附件库
+    mmh3是0.5.5.6版本支持favioch hash的附件库
 痛点重谈-Web指纹识别与解决方案-NOVASEC
 
 https://mp.weixin.qq.com/s/lHIJmIWbm8ylK6yjjmmNkg
