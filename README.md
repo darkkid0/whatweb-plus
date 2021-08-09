@@ -12,9 +12,9 @@
 
 =====================================
 
-Whatweb-NOVASEC超级增强版介绍与使用：
+Whatweb超级增强版介绍与使用：
 
-痛点重谈-Web指纹识别与解决方案
+痛点重谈-Web指纹识别与解决方案-NOVASEC
 
 https://mp.weixin.qq.com/s/lHIJmIWbm8ylK6yjjmmNkg
 
