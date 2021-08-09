@@ -21,15 +21,15 @@ https://mp.weixin.qq.com/s/lHIJmIWbm8ylK6yjjmmNkg
 
 功能增强简述:
 
-使其默认支持动态的请求方式。
+    使其默认支持动态的请求方式。
 
-将其封装为一个可执行exe文件。
+    将其封装为一个可执行exe文件。
 
-修复md5hash计算错误的BUG
+    修复md5hash计算错误的BUG
 
-添加:mmh3 hash识别规则。
+    添加:mmh3 hash识别规则。
 
-指纹库增强【目前全部指纹库5000+】
+    指纹库增强【目前全部指纹库5000+】
 
 
 
