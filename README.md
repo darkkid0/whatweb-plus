@@ -24,7 +24,7 @@ whatweb主程序更新记录：
 
 =====================================
 
-插件更新记录：
+whatweb插件更新记录：
 
     WhatWeb-plugins-all-202107301602.zip 初步指纹优化
     WhatWeb-plugins-all-202107312109.zip 指纹优化合并
