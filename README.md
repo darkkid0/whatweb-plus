@@ -9,7 +9,8 @@ whatweb主程序更新记录：
     0.5.5.6 基于0.5.5进行修复，默认支持动态请求头。打包可执行exe文件。修复md5hash指纹计算BUG。添加:mmh3 hash规则。指纹库增强【目前全部指纹库5000+】
     0.5.5.7 biref输出添加空行,使用nokogiri的解码功能修复title提取乱码的问题（加入nokogiri模块后无法打包exe）
     0.5.5.8 重写nokogiri的解码功能修复title提取乱码的问题（已发布）
-
+    0.5.5.8-new 重新打包exe文件,不再内置任何修改的插件以免混淆，只包含基于原版whatweb做的功能修改。
+    
 =====================================
 
 whatweb插件更新记录：
@@ -19,7 +20,8 @@ whatweb插件更新记录：
     WhatWeb-plugins-all-202108090926.zip 支持shiro识别、其他指纹优化
     WhatWeb-plugins-all-202108091957.zip 修复shiro识别判断条件误报-严重
     WhatWeb-plugins-all-202108100951.zip 修复shiro识别的一个BUG, 修复title插件中文乱码
-    
+    WhatWeb-plugins-all-2021081014XX.zip 优化两个插件,修改插件目录名称用于区别,无更新情况以后不再频繁更新整个文件夹
+        
 =====================================
 
 ruby下运行必须安装以下模块：
