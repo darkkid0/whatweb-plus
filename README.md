@@ -6,14 +6,23 @@
 
 ruby下运行必须安装以下模块：
 
-    gem install mmh3  
-    gem install nokogiri
-
-    mmh3是0.5.5.7版本解决title插件提取乱码的附件库
-    mmh3是0.5.5.6版本支持favioch hash的附件库
+    gem install mmh3 
+    
+    #gem install nokogiri #nokogiri无法打包进exe,0.5.5.8版本已取消使用该模块
+    #mmh3是0.5.5.6版本支持favioch hash的附件库
+    #nokogiri是0.5.5.7版本解决title插件提取乱码的附件库 
     
 =====================================
 
+whatweb主程序更新记录：
+
+0.5.5.6 默认支持动态请求头。打包可执行exe文件。修复md5hash指纹计算BUG。添加:mmh3 hash规则。指纹库增强【目前全部指纹库5000+】
+    
+0.5.5.7 biref输出添加空行,使用nokogiri的解码功能修复title提取乱码的问题（加入nokogiri模块后无法打包exe）
+
+0.5.5.8 重写nokogiri的解码功能修复title提取乱码的问题（打包成功后发布）
+
+=====================================
 
 插件更新记录：
 
@@ -41,18 +50,9 @@ Whatweb增强版介绍与使用：
 
 https://mp.weixin.qq.com/s/lHIJmIWbm8ylK6yjjmmNkg
 
+=====================================
 
-功能增强简述:
 
-    使其默认支持动态的请求方式。
-
-    将其封装为一个可执行exe文件。
-
-    修复md5hash计算错误的BUG
-
-    添加:mmh3 hash识别规则。
-
-    指纹库增强【目前全部指纹库5000+】
 
 
 
