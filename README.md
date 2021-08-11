@@ -15,12 +15,13 @@ whatweb主程序更新记录：
 
 whatweb插件更新记录：
 
-    WhatWeb-plugins-all-202107301602.zip 初步指纹优化
-    WhatWeb-plugins-all-202107312109.zip 指纹优化合并
-    WhatWeb-plugins-all-202108090926.zip 支持shiro识别、其他指纹优化
-    WhatWeb-plugins-all-202108091957.zip 修复shiro识别判断条件误报-严重
-    WhatWeb-plugins-all-202108100951.zip 修复shiro识别的一个BUG, 修复title插件中文乱码
-    WhatWeb-plugins-all-2021081014XX.zip 优化两个插件,修改插件目录名称用于区别,无更新情况以后不再频繁更新整个文件夹
+    WhatWeb-plugins-202107301602.zip 初步指纹优化
+    WhatWeb-plugins-202107312109.zip 指纹优化合并
+    WhatWeb-plugins-202108090926.zip 支持shiro识别、其他指纹优化
+    WhatWeb-plugins-202108091957.zip 修复shiro识别判断条件误报-严重
+    WhatWeb-plugins-202108100951.zip 修复shiro识别的一个BUG, 修复title插件中文乱码
+    WhatWeb-plugins-2021081014XX.zip 优化两个插件,修改插件目录名称用于区别,无更新情况以后不再频繁更新整个文件夹
+    WhatWeb-Plugins-202108111130.zip  修复swaggerUI指纹,和其他多个批量指纹中特征与方法不匹配的问题
         
 =====================================
 
