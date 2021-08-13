@@ -4,6 +4,20 @@
 
 =====================================
 
+插件需求投递与更新发布:
+
+    NOVASEC指纹交流群请联系【NOVASEC】公众号最新文章末尾的运营微信加入。
+    github不定时更新与优化插件
+
+=====================================
+
+Whatweb增强版介绍与使用：
+
+痛点重谈-Web指纹识别与解决方案-NOVASEC
+
+https://mp.weixin.qq.com/s/lHIJmIWbm8ylK6yjjmmNkg
+
+=====================================
 whatweb更新规划：
 
     1、使用python对本程序输入输出的进行完美包装。
@@ -13,7 +27,6 @@ whatweb更新规划：
     4、使用Golang语言重构整个项目，需要您的技术支持。欢迎【NOVASEC】公众号后台联系获取酒零微信
 
     
-
 =====================================
 
 whatweb主程序更新记录：
@@ -23,7 +36,7 @@ whatweb主程序更新记录：
     0.5.5.8 重写nokogiri的解码功能修复title提取乱码的问题（已发布）
     0.5.5.8-new 重新打包exe文件,不再内置任何修改插件，只基于原版whatweb修改。 kali linux下打包测试失败,有需要的朋友请自行研究rubyc。
     添加allhash规则,用于替代mmh3和md5hash,实现减少URL请求的效果。
-    添加windows下默认颜色输出参数，优化显示效果 --color=always,(开始是auto,所以windows没有颜色,linux有)
+    添加windows下默认颜色输出参数，优化显示效果 --color=always,(开始是auto,所以windows没有颜色,linux有) 暂未发布
        
 =====================================
 
@@ -49,21 +62,6 @@ ruby下运行必须安装以下模块：
     
 =====================================
 
-插件需求投递与更新发布:
-
-    NOVASEC指纹交流群请联系【NOVASEC】公众号最新文章末尾的运营微信加入。
-    github不定时更新与优化插件
-
-=====================================
-
-Whatweb增强版介绍与使用：
-
-痛点重谈-Web指纹识别与解决方案-NOVASEC
-
-https://mp.weixin.qq.com/s/lHIJmIWbm8ylK6yjjmmNkg
-
-=====================================
-
 kali下安装WhatWeb增强版：
 
 1、卸载WhatWeb  apt-get remove WhatWeb
@@ -77,19 +75,23 @@ kali下安装WhatWeb增强版：
 3、配置WhatWeb
 
 #添加可执行权限
+
     cd /opt/WhatWeb/
     chmod +x whatweb  
 
 #使得WhatWeb可以直接被调用运行
+
     ln -s /opt/WhatWeb/whatweb   /usr/bin
 
 #更新插件目录,便于自动调用
 
 #先上传插件到文件夹下面
+
     rm -rf /opt/WhatWeb/pluings
     mv /opt/WhatWeb/pluings-novasec /opt/WhatWeb/pluings
 
 #重启一下或刷新环境变量运行WhatWeb进行调用
 
 =====================================
+
 
