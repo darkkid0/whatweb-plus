@@ -22,7 +22,9 @@ whatweb主程序更新记录：
     0.5.5.7 biref输出添加空行,使用nokogiri的解码功能修复title提取乱码的问题（加入nokogiri模块后无法打包exe）
     0.5.5.8 重写nokogiri的解码功能修复title提取乱码的问题（已发布）
     0.5.5.8-new 重新打包exe文件,不再内置任何修改插件，只基于原版whatweb修改。 kali linux下打包测试失败,有需要的朋友请自行研究rubyc。
-   
+    添加allhash规则,用于替代mmh3和md5hash,实现减少URL请求的效果。
+    添加windows下默认颜色输出参数，优化显示效果 --color=always,(开始是auto,所以windows没有颜色,linux有)
+       
 =====================================
 
 whatweb插件更新记录：
@@ -62,8 +64,32 @@ https://mp.weixin.qq.com/s/lHIJmIWbm8ylK6yjjmmNkg
 
 =====================================
 
+kali下安装WhatWeb增强版：
 
+1、卸载WhatWeb  apt-get remove WhatWeb
 
+2、上传WhatWeb增强版到kali /opt 文件夹 
 
+（其他文件夹也行, 如果解压失败可以先解压后上传，或使用其他压缩程序打包）
 
+（测试使用MobaXterm工具拖动整个文件夹进行上传成功）
+
+3、配置WhatWeb
+
+#添加可执行权限
+    cd /opt/WhatWeb/
+    chmod +x whatweb  
+
+#使得WhatWeb可以直接被调用运行
+    ln -s /opt/WhatWeb/whatweb   /usr/bin
+
+#更新插件目录,便于自动调用
+
+#先上传插件到文件夹下面
+    rm -rf /opt/WhatWeb/pluings
+    mv /opt/WhatWeb/pluings-novasec /opt/WhatWeb/pluings
+
+#重启一下或刷新环境变量运行WhatWeb进行调用
+
+=====================================
 
