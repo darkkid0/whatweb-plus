@@ -1,6 +1,5 @@
 # whatweb-plus
 
-已内测、已公测, 无缺陷性问题反馈, 代码开源, 放心使用.  ---NOVASEC 酒零
 
 
 whatweb自开始改造截至目前已更新10个版本以上，
@@ -10,7 +9,6 @@ whatweb自开始改造截至目前已更新10个版本以上，
 这个版本后，我已将我目前对指纹识别工具所有的要求和理解都进行了实现。
 
 如果没有其他的同样功能支持的Go版本替代，这应该是最强大的指纹识别工具了。
-
 
 
 关于后续更新
@@ -51,3 +49,5 @@ Whatweb增强版介绍与使用：
     Ruby and Whatweb Install on Windows
     https://mp.weixin.qq.com/s/ZjQfsovGP-GK_xUYuP7M-A
 
+
+已内测、已公测, 无缺陷性问题反馈, 代码开源, 放心使用.  ---NOVASEC 酒零
