@@ -28,12 +28,19 @@
 
 Whatweb增强版介绍与使用：
 
-    Whatweb 0.5.5.12 完善使用及插件文档
+    Whatweb 0.5.5.12 完善使用及插件文档【非常重要】
     https://mp.weixin.qq.com/s/F9sXIhCfFCZ3WtMMltnP5Q
 
     痛点重谈-Web指纹识别与解决方案-NOVASEC
     https://mp.weixin.qq.com/s/lHIJmIWbm8ylK6yjjmmNkg
-    
+
+
+    Whatweb特征修改、插件编写、EXE打包
+    https://mp.weixin.qq.com/s/TaYHrzw5Yb6jxj046nR_DA
+
+    Ruby and Whatweb Install on Windows
+    https://mp.weixin.qq.com/s/ZjQfsovGP-GK_xUYuP7M-A
+        
     NOVASEC 开源工具记录
     https://mp.weixin.qq.com/s/h4rYBZ36xaEHF34vyW4WQg
 
@@ -42,10 +49,4 @@ Whatweb增强版介绍与使用：
 
     whatweb增强版公开发布
     https://mp.weixin.qq.com/s/njxWqxw-TJH2MKAvOvI-kg
-
-    Whatweb特征修改、插件编写、EXE打包
-    https://mp.weixin.qq.com/s/TaYHrzw5Yb6jxj046nR_DA
-
-    Ruby and Whatweb Install on Windows
-    https://mp.weixin.qq.com/s/ZjQfsovGP-GK_xUYuP7M-A
 
