@@ -28,8 +28,7 @@ whatweb自开始改造截至目前已更新10个版本以上，
 Whatweb增强版介绍与使用：
 
     Whatweb 0.5.5.12 完善使用及插件文档
-    https://mp.weixin.qq.com/s?__biz=MzUzODU3ODA0MA==&tempkey=MTEyN19JaFl2OU5KQVRhRmNVck5aQkJ1TEVhc0M2RTd2N3B1NUJUbmdWN3FHVHBxVFQ5S1gxOGptOTRLVnJ1TTFobEU5RzRkVlVxZS1ldHY5RktaSXZzWGF3RFN6Y0Zfd2stWF9xZFpua210RVhfWFZ2YmwzUVRTM2xYYnRscVp0Um9SYkZKV080aXdaWURNeVVIYTJfZFhpMzAtT0t5YTcxaFBsTXlxT0VRfn4%3D&chksm=7ad4cd354da34423061d39e8906b391c9faedce1463d8801e196fe36a3dd5f7091f417068289&mpshare=1&scene=1&srcid=08181C3mtIk3fu6OcU8GhJvX&sharer_sharetime=1629298637298&sharer_shareid=c7567a65a5bbf0e355b3a2c26cb13098#wechat_redirect
-
+    https://mp.weixin.qq.com/s/F9sXIhCfFCZ3WtMMltnP5Q
 
     痛点重谈-Web指纹识别与解决方案-NOVASEC
     https://mp.weixin.qq.com/s/lHIJmIWbm8ylK6yjjmmNkg
