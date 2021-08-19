@@ -1,6 +1,8 @@
 # whatweb-plus
 
 
+已内测、已公测, 无缺陷性问题反馈, 代码开源, 放心使用.  ---NOVASEC 酒零
+
 
 whatweb自开始改造截至目前已更新10个版本以上，
 
@@ -48,5 +50,3 @@ Whatweb增强版介绍与使用：
     Ruby and Whatweb Install on Windows
     https://mp.weixin.qq.com/s/ZjQfsovGP-GK_xUYuP7M-A
 
-
-已内测、已公测, 无缺陷性问题反馈, 代码开源, 放心使用.  ---NOVASEC 酒零
