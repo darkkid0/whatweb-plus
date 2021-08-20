@@ -50,3 +50,11 @@ Whatweb增强版介绍与使用：
     whatweb增强版公开发布
     https://mp.weixin.qq.com/s/njxWqxw-TJH2MKAvOvI-kg
 
+关于[-X][-Y][-Z]三个重点匹配优化项
+
+没开[-Z]会请求几个默认指纹路径,表现为多几个请求。
+
+没开[-Y]会将所有请求URL进行一次完整请求，表现为会多一些一个站点的多个子请求，最好使用包装器的--log-csv来统合排序。
+![image](https://user-images.githubusercontent.com/46115146/130211813-fc6343c8-43af-49b6-be64-8786b050a280.png)
+
+
