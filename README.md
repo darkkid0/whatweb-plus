@@ -10,7 +10,7 @@
     
 重点注意
 
-    1、使用ruby运行whatweb脚本，需要按照mmh3模块 【gem install mmh3】
+    1、使用ruby运行whatweb脚本，需要安装mmh3模块 【gem install mmh3】
     2、whatweb.exe为了缩小打包体积，仅包含简单的基础插件，请-p指定插件目录调用。
 
 下一步规划
