@@ -24,7 +24,7 @@
     whatweb-Plugins-202108232230.zip
     1、更新到8000+插件,大部分由于名称问题重复。
     2、修复shiro指纹的https支持
-    3、增加要给fastjson指纹插件(未匹配成功)
+    3、增加要给fastjson指纹插件(未找到测试站点)
     4、替换my-plugins文件夹使用
 
 
