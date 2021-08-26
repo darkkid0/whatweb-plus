@@ -12,6 +12,12 @@
 
     1、使用ruby运行whatweb脚本，需要安装mmh3模块 【gem install mmh3】
     2、whatweb.exe为了缩小打包体积，仅包含简单的基础插件，请-p指定插件目录调用。
+    3、关于waf识别问题：
+        支持waf指纹，但没用添加会触发waf的请求。请主动请求会出发waf的url，如whatweb http://www.baidu.com/index?/etc/passed
+    4、关于运行环境的问题：
+        windows下有exe打包版本，其他系统未打包成功，需要安装ruby环境（kali ruby2.5-2.7 测试通过）
+   
+    
 
 下一步规划
 
