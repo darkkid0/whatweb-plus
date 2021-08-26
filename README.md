@@ -50,7 +50,7 @@
 
 Whatweb增强版介绍与使用：
 
-    Whatweb 0.5.5.12 完善使用及插件文档【非常重要】
+    Whatweb 0.5.5.12 完善使用及插件文档【非常重要,记录各种功能更新及基本使用】
     https://mp.weixin.qq.com/s/F9sXIhCfFCZ3WtMMltnP5Q
 
     痛点重谈-Web指纹识别与解决方案-NOVASEC
