@@ -84,5 +84,11 @@ Whatweb增强版介绍与使用：
     
 指纹合并记录
     
-    dismap    tidefinger-python3    tidefinger-python2     wappalyzer    Ehole+Finger  Fscan+glass    WAF指纹
+    dismap    
+    tidefinger-python3    
+    tidefinger-python2     
+    wappalyzer    
+    Ehole+Finger  
+    Fscan+glass    WAF指纹
+    
     致谢开源指纹的各位工程师。
