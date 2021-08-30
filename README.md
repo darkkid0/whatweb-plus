@@ -7,6 +7,7 @@
     目前版本是0.5.5.12，是最新版，也是最终版，后续只会对插件进行增删和优化。
     这个版本后，我已将我目前对指纹识别工具所有的要求和理解都进行了实现。
     如果没有其他的同样功能支持的Go版本替代，这应该是最强大的指纹识别工具了。
+
     
 重点注意
 
@@ -80,3 +81,8 @@ Whatweb增强版介绍与使用：
 ![image](https://user-images.githubusercontent.com/46115146/130211813-fc6343c8-43af-49b6-be64-8786b050a280.png)
 
 
+    
+指纹合并记录
+    
+    dismap    tidefinger-python3    tidefinger-python2     wappalyzer    Ehole+Finger  Fscan+glass    WAF指纹
+    致谢开源指纹的各位工程师。
