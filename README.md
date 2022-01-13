@@ -80,17 +80,12 @@ Whatweb增强版介绍与使用：
 关于[-X][-Y][-Z]三个重点匹配优化项
 
 
-[关于--no-base-path, -Z 关闭​的功能]   新增，关闭自动访问高频指纹路径，默认True。
-
-whatweb-plus 默认会请求几个内置指纹路径,表现为多几个请求。  不需要可以使用[-Z] 
-
-[关于--no-min-urls, -Y 关闭​的功能,不建议关闭]  新增，关闭最小化访问插件:url，默认True。
-
-whatweb-plus 默认会将匹配插件的每一个请求URL重写作为完整的新URL作为请求，以避免全局重复请求相同的URL,缺点是会表现出一个站点的多个子请求，建议使用novafinger.py包装器的--log-csv参数进行结果输出，便于排序处理。
-
-[关于--no-max-match, -X 关闭​的功能]  新增，忽略匹配:url要求，默认True。
-
-whatweb-plus 匹配规则时,默认会忽略:url需要相同的前提，形成更多的结果匹配。
+    [关于--no-base-path, -Z 关闭​的功能]   新增，关闭自动访问高频指纹路径，默认True
+    whatweb-plus 默认会请求几个内置指纹路径,表现为多几个请求。  不需要可以使用[-Z]
+    [关于--no-min-urls, -Y 关闭​的功能,不建议关闭]  新增，关闭最小化访问插件:url，默认True
+    whatweb-plus 默认会将匹配插件的每一个请求URL重写作为完整的新URL作为请求，以避免全局重复请求相同的URL,缺点是会表现出一个站点的多个子请求，建议使用novafinger.py包装器的--log-csv参数进行结果输出，便于排序处理
+    [关于--no-max-match, -X 关闭​的功能]  新增，忽略匹配:url要求，默认True
+    whatweb-plus 匹配规则时,默认会忽略:url需要相同的前提，形成更多的结果匹配。
 ![image](https://user-images.githubusercontent.com/46115146/130211813-fc6343c8-43af-49b6-be64-8786b050a280.png)
 
 
