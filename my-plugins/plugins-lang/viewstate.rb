@@ -1,5 +1,5 @@
 Plugin.define do
-name "_viewstate"
+name "viewstate"
 authors [
 "winezero",
 
