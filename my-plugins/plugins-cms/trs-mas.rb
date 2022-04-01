@@ -4,9 +4,11 @@ authors [
 "winezero",
 
 ]
-version "0.1"
+version "0.2"
 matches [
-{:search=>"all", :text=>'TRS MAS'},
-{:search=>"all", :text=>'TRS-MAS'},
+{:search=>"body", :text=>'TRS MAS'},
+{:search=>"body", :text=>'TRS-MAS'},
+{:search=>"headers", :text=>'X-Mas-Server'},
+
 ]
 end
