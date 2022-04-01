@@ -4,11 +4,13 @@ authors [
 "winezero",
 
 ]
-version "0.1"
+version "0.2"
 matches [
-{:search=>"all", :text=>'DouPHP'},
+{:text=>'DouPHP'},
 {:text=>'Powered by DouPHP'},
-{:text=>'indexLeft'},
 {:text=>'recommendProduct")'},
+{:url=>'/admin/images/global.js', :text=>'dou_callback'},
+{:url=>'/m/theme/default/style.css', :text=>'douco'},
+
 ]
 end
