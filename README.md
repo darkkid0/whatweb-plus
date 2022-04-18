@@ -19,11 +19,14 @@ whatweb 自开始改造截至目前已迭代多个版本，目前已实现个人
 	对指纹扫描插件进行分类规划，主要是进行指纹文件规划和规则合并整理耗费,需要较多的时间，有兴趣的朋友可以联系加入这个项目进行支持。
 可选：
 	添加一个可选参数和部分语句来主动探测waf。
-	尝试添加一个未匹配站点的指纹自动记录的功能,便于用户的指纹编写。
 ```
 
 # 更新记录
 
+    20220418 更新whatweb VERSION = 0.5.5.13 ,并发布新版本的windows下的可执行文件
+    
+    20220418 对于输入没有协议头的域名,从默认的添加http协议头变为同时添加http和https协议头。Example:输入域名 www.baidu.com 将请求:http://www.baidu.com 与 https://www.baidu.com
+    
     20210819 更新8000+指纹插件,大部分由于名称问题重复,需要进一步处理。
         已合并指纹来源:
         应用指纹:wappalyzer|dismap|tidefinger-python3|tidefinger-python2|Ehole|Finger|   
@@ -65,7 +68,7 @@ whatweb 自开始改造截至目前已迭代多个版本，目前已实现个人
 
 ```
 1.关于运行环境
-    使用ruby运行whatweb脚本，需要安装mmh3模块 【gem install mmh3】
+    使用ruby运行whatweb脚本，需要安装mmh3模块 [gem install mmh3]
     windows下有exe打包版本，其他系统未打包成功，需要安装ruby环境（kali ruby2.5-2.7 测试通过） 
     whatweb.exe为了缩小打包体积，仅包含简单的基础插件，请-p 指定插件目录调用。
 
@@ -74,35 +77,7 @@ whatweb 自开始改造截至目前已迭代多个版本，目前已实现个人
 	如whatweb http://www.baidu.com/index?/etc/passed
 ```
 
-
-
-# 工具使用说明
-
-Whatweb 0.5.5.12 完善使用及插件文档【非常重要,记录各种功能更新及基本使用】
-
-https://mp.weixin.qq.com/s/F9sXIhCfFCZ3WtMMltnP5Q
-
-痛点重谈-Web指纹识别与解决方案-NOVASEC
-
-https://mp.weixin.qq.com/s/lHIJmIWbm8ylK6yjjmmNkg
-
-Whatweb特征修改、插件编写、EXE打包
-
-https://mp.weixin.qq.com/s/TaYHrzw5Yb6jxj046nR_DA
-
-NOVASEC 开源工具记录
-
-https://mp.weixin.qq.com/s/h4rYBZ36xaEHF34vyW4WQg
-
-里程碑思路: Go工具框架实现动态插件
-
-https://mp.weixin.qq.com/s/ihNalwYQGNcWlG7TJ8yazw
-
-whatweb增强版公开发布
-
-https://mp.weixin.qq.com/s/njxWqxw-TJH2MKAvOvI-kg
-
-# whatweb环境安装
+# 程序安装
 
 ## ruby环境需求
 
@@ -149,8 +124,9 @@ yum -y install gcc openssl-devel make
 tar -xvf ruby-2.7.6.tar.gz 
 cd ruby-2.7.6/
 ./configure --prefix=/usr/local/ruby
-make
-make install
+make && make install
+rm -rf ruby-2.7.6* #可选
+
 
 添加环境变量
 echo "PATH=$PATH:/usr/local/ruby/bin" >> /etc/bashrc
@@ -166,7 +142,9 @@ PS：如果gem不存在 yum install gem
 #查看当前源,如果是国内源可以忽略以下操作
 gem sources -l		
 #增加源
-gem sources -a http://gems.ruby-china.com/   
+gem sources -a  http://mirrors.aliyun.com/rubygems/
+或
+#gem sources -a http://gems.ruby-china.com/   
 #删除原有源
 gem sources --remove https://rubygems.org/     
 ```
@@ -175,23 +153,22 @@ gem sources --remove https://rubygems.org/
 
 ```
 上传解压
-tar -xvf whatweb-xxx.zip
-mv  whatweb-xxx whatweb
+unzip WhatWeb*.zip
+mv  WhatWeb whatweb
 cd whatweb
+chmod +x whatweb
 
 安装bundle
 gem install bundle
 
-更新Bundler  [可选]
-bundle update
+#更新Bundler  [可选]
+#bundle update
 
 批量安装依赖
 bundle install
 gem install mmh3 
 PS：由于mmh3是后面修改的,所以bundle不一定会自动安装,此时需要手动安装
 
-运行配置
-chmod +x whatweb
 
 运行测试
 whatweb -v     #WhatWeb version 0.5.5.12
@@ -202,4 +179,32 @@ apt-get remove whatweb #卸载kali whatweb可选
 mv whatweb /opt/whatweb
 ln -s  /opt/whatweb/whatweb /usr/bin
 ```
+
+
+
+# 工具使用说明
+
+Whatweb 0.5.5.12 完善使用及插件文档【非常重要,记录各种功能更新及基本使用】
+
+https://mp.weixin.qq.com/s/F9sXIhCfFCZ3WtMMltnP5Q
+
+痛点重谈-Web指纹识别与解决方案-NOVASEC
+
+https://mp.weixin.qq.com/s/lHIJmIWbm8ylK6yjjmmNkg
+
+Whatweb特征修改、插件编写、EXE打包
+
+https://mp.weixin.qq.com/s/TaYHrzw5Yb6jxj046nR_DA
+
+NOVASEC 开源工具记录
+
+https://mp.weixin.qq.com/s/h4rYBZ36xaEHF34vyW4WQg
+
+里程碑思路: Go工具框架实现动态插件
+
+https://mp.weixin.qq.com/s/ihNalwYQGNcWlG7TJ8yazw
+
+whatweb增强版公开发布
+
+https://mp.weixin.qq.com/s/njxWqxw-TJH2MKAvOvI-kg
 

@@ -194,8 +194,25 @@ module WhatWeb
       # http, https, ftp, etc
       push_to_urllist = []
 
+	# 对域名添加添加http协议头,https协议头
+      tmp_url_list = []
+        url_list.map do |x|
+          if File.exist?(x)
+            tmp_url_list << x
+          else
+            if x !~ %r{^[a-z]+:\/\/}
+              # add missing URI prefix
+              tmp_url_list << 'http://' + x
+              tmp_url_list << 'https://' + x
+            else
+              tmp_url_list << x
+            end
+          end
+        end
+	# puts tmp_url_list
+	
       # TODO: refactor this
-      url_list = url_list.map do |x|
+      url_list = tmp_url_list.map do |x|
         if File.exist?(x)
           x
         else
@@ -204,15 +221,14 @@ module WhatWeb
           x =  x.gsub( '%insert%' ,opts[:url_pattern] ) unless opts[:url_pattern].to_s.eql?('')
           # add prefix & suffix
           x = "#{opts[:url_prefix]}#{x}#{opts[:url_suffix]}"
-
+          
           # need to move this into a URI parsing function
-          #
           # check for URI prefix
-          if x !~ %r{^[a-z]+:\/\/}
-            # add missing URI prefix
-            x.sub!(/^/, 'http://')
-          end
-
+          # if x !~ %r{^[a-z]+:\/\/}
+          #   # add missing URI prefix
+          #   x.sub!(/^/, 'http://')
+          # end
+          
           # is it a valid domain?
           begin
             domain = Addressable::URI.parse(x)
@@ -231,7 +247,6 @@ module WhatWeb
           x
         end
       end
-
       url_list += push_to_urllist unless push_to_urllist.empty?
       # compact removes nils
       url_list = url_list.flatten.compact #.uniq
@@ -239,7 +254,7 @@ module WhatWeb
           #在此对所有目标插入常用路径
           url_list.uniq.dup.each do  |item|  
               $BASEPATH.uniq.each do  |path|  
-                  base_uri = URI.join(item, path).to_s #URI.join是只能添加,当suffix是/开头时从域名添加，否则从最后层目录添加
+                  base_uri = URI.join(item, path).to_s #URI.join是动态添加,当suffix是/开头时从域名添加，否则从最后一层目录添加
                   #puts base_uri
                   url_list <<base_uri if (not url_list.include?(base_uri))
                 end
