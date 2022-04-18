@@ -171,10 +171,10 @@ gem sources -a http://gems.ruby-china.com/
 gem sources --remove https://rubygems.org/     
 ```
 
-## 安装whatweb依赖
+## 安装whatweb和对应
 
 ```
-whatweb运行前需要安装一些依赖
+上传解压
 tar -xvf whatweb-xxx.zip
 mv  whatweb-xxx whatweb
 cd whatweb
@@ -190,8 +190,16 @@ bundle install
 gem install mmh3 
 PS：由于mmh3是后面修改的,所以bundle不一定会自动安装,此时需要手动安装
 
+运行配置
+chmod +x whatweb
+
 运行测试
 whatweb -v     #WhatWeb version 0.5.5.12
 whatweb www.baidu.com -X -Y -Z
+
+快捷运行配置
+apt-get remove whatweb #卸载kali whatweb可选
+mv whatweb /opt/whatweb
+ln -s  /opt/whatweb/whatweb /usr/bin
 ```
 
