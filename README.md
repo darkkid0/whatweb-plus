@@ -90,10 +90,6 @@ Whatweb特征修改、插件编写、EXE打包
 
 https://mp.weixin.qq.com/s/TaYHrzw5Yb6jxj046nR_DA
 
-Ruby and Whatweb Install on Windows
-
-https://mp.weixin.qq.com/s/ZjQfsovGP-GK_xUYuP7M-A
-
 NOVASEC 开源工具记录
 
 https://mp.weixin.qq.com/s/h4rYBZ36xaEHF34vyW4WQg
@@ -105,4 +101,97 @@ https://mp.weixin.qq.com/s/ihNalwYQGNcWlG7TJ8yazw
 whatweb增强版公开发布
 
 https://mp.weixin.qq.com/s/njxWqxw-TJH2MKAvOvI-kg
+
+# whatweb环境安装
+
+## ruby环境需求
+
+```
+运行whatweb需要ruby2.3及以上环境
+ruby2.7环境下运行测试通过。
+
+ruby2.0.0 版本报错记录:
+Fetching: bundler-2.3.11.gem (100%)
+ERROR:  Error installing bundle:
+        bundler requires Ruby version >= 2.3.0.
+```
+
+
+
+## windows环境安装ruby
+
+```
+参考:
+Ruby and Whatweb Install on Windows
+https://mp.weixin.qq.com/s/ZjQfsovGP-GK_xUYuP7M-A
+
+```
+
+## centOS7 环境安装ruby
+
+```
+参考:
+CentOS7安装最新版ruby
+https://blog.csdn.net/NetRookieX/article/details/108308734
+
+centos7下直接通过yum安装的ruby2.0版本太低。
+centos7下测试使用rvm安装ruby比较复杂。
+因此建议centos7下使用源码安装 
+
+下载ruby源代码
+http://www.ruby-lang.org/en/downloads/
+https://cache.ruby-lang.org/pub/ruby/2.7/ruby-2.7.6.tar.gz
+
+安装ruby环境依赖包
+yum -y install gcc openssl-devel make
+
+编译ruby环境
+tar -xvf ruby-2.7.6.tar.gz 
+cd ruby-2.7.6/
+./configure --prefix=/usr/local/ruby
+make
+make install
+
+添加环境变量
+echo "PATH=$PATH:/usr/local/ruby/bin" >> /etc/bashrc
+source /etc/bashrc
+
+运行测试
+ruby -v           #2.7.6
+gem -v            #3.1.6
+
+PS：如果gem不存在 yum install gem
+
+替换gem源
+#查看当前源,如果是国内源可以忽略以下操作
+gem sources -l		
+#增加源
+gem sources -a http://gems.ruby-china.com/   
+#删除原有源
+gem sources --remove https://rubygems.org/     
+```
+
+## 安装whatweb依赖
+
+```
+whatweb运行前需要安装一些依赖
+tar -xvf whatweb-xxx.zip
+mv  whatweb-xxx whatweb
+cd whatweb
+
+安装bundle
+gem install bundle
+
+更新Bundler  [可选]
+bundle update
+
+批量安装依赖
+bundle install
+gem install mmh3 
+PS：由于mmh3是后面修改的,所以bundle不一定会自动安装,此时需要手动安装
+
+运行测试
+whatweb -v     #WhatWeb version 0.5.5.12
+whatweb www.baidu.com -X -Y -Z
+```
 
