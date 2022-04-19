@@ -320,7 +320,7 @@ def json_to_csv( json_path,csv_path ):
 if __name__ == '__main__':
     print('''\033[1;34m 
 Python Wrapper For Whatweb Enhanced 
-WhatWeb _ Next generation web scanner version 0.5.5.12
+WhatWeb _ Next generation web scanner version 0.5.5.12 And subsequent versions  supported.
 
 Version: 0.1
 Date: 2021.08.18

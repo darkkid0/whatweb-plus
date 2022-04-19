@@ -8,13 +8,15 @@ set "minute=%time:~3,2%"
 set "second=%time:~6,2%"
 
 if "%hour_ten%" == " " (
-    set "time1=%year%%month%%day%%0%%hour_one%%minute%%second%"
+ set "time1=%year%%month%%day%0%hour_one%%minute%%second%"
 ) else (
-    set "time1=%year%%month%%day%%hour_ten%%hour_one%%minute%%second%"
+ set "time1=%year%%month%%day%%hour_ten%%hour_one%%minute%%second%"
 )
 
 echo NOW TIME IS : %time1%
+
+
 echo python3 novafinger.py  -X -Y -Z  %* --log-csv result-%time1%.csv
 python3 novafinger.py  -X -Y -Z  %* --log-csv result-%time1%.csv
 
-::pause 
+pause 
