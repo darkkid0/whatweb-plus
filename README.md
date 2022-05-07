@@ -149,7 +149,7 @@ gem sources -a  http://mirrors.aliyun.com/rubygems/
 gem sources --remove https://rubygems.org/     
 ```
 
-## 安装whatweb和对应
+## Linux安装whatweb
 
 ```
 上传解压
@@ -169,18 +169,47 @@ bundle install
 gem install mmh3 
 PS：由于mmh3是后面修改的,所以bundle不一定会自动安装,此时需要手动安装
 
+运行测试
+whatweb -v     #WhatWeb version 0.5.5.12
+whatweb www.baidu.com -X -Y -Z
+
+快捷运行配置--弃用
+apt-get remove whatweb #卸载kali whatweb可选
+mv whatweb /opt/whatweb  【自定义目录】
+ln -s  /opt/whatweb/whatweb /usr/bin
+
+快捷运行配置--更优的解决方案
+cp whatweb whatweb+
+mv whatweb /opt/whatweb 【自定义目录】
+ln -s  /opt/whatweb/whatweb+ /usr/bin
+whatweb+ www.baidu.com -X -Y -Z
+```
+
+
+
+## Kali安装whatweb
+
+```
+上传解压
+unzip WhatWeb*.zip
+mv  WhatWeb whatweb
+cd whatweb
+chmod +x whatweb
+
+安装mmh3依赖库
+gem install mmh3 
 
 运行测试
 whatweb -v     #WhatWeb version 0.5.5.12
 whatweb www.baidu.com -X -Y -Z
 
-快捷运行配置
-apt-get remove whatweb #卸载kali whatweb可选
-mv whatweb /opt/whatweb
-ln -s  /opt/whatweb/whatweb /usr/bin
+快捷运行配置--更优的解决方案
+cp whatweb whatweb+
+mv whatweb /opt/whatweb 【自定义目录】
+ln -s  /opt/whatweb/whatweb+ /usr/bin
+whatweb+ www.baidu.com -X -Y -Z
+whatweb+ www.baidu.com -X -Y -Z -p myplugin/  [任意目录都可以直接补全插件]
 ```
-
-
 
 # 工具使用说明
 
