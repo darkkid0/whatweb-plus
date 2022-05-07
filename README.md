@@ -100,11 +100,15 @@ ERROR:  Error installing bundle:
 Ruby and Whatweb Install on Windows
 https://mp.weixin.qq.com/s/ZjQfsovGP-GK_xUYuP7M-A
 
+windows下可以直接使用打包好的EXE程序,不过相比直接使用ruby调用whatweb会慢一些。
+
 ```
 
 ## centOS7 环境安装ruby
 
 ```
+kali系统下多次尝试打包linux下的可执行文件失败了，有兴趣的朋友可以看看ruby-packer这个项目，猜测可以使用ubuntu进行打包。
+
 参考:
 CentOS7安装最新版ruby
 https://blog.csdn.net/NetRookieX/article/details/108308734
@@ -208,7 +212,6 @@ cp whatweb whatweb+
 mv whatweb /opt/whatweb 【自定义目录】
 ln -s  /opt/whatweb/whatweb+ /usr/bin
 whatweb+ www.baidu.com -X -Y -Z
-whatweb+ www.baidu.com -X -Y -Z -p myplugin/  [任意目录都可以直接补全插件]
 ```
 
 # 工具使用说明
