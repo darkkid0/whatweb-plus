@@ -387,9 +387,9 @@ class Target
       
      @body = res.body 
       #@body = Helper::convert_to_utf8(@body)   # 修复Can't convert to UTF-8 undefined method `force_encoding' for nil:NilClass
-      if res.body.nil? == false then @body=Helper::convert_to_utf8(@body)  else @body="" end;  #增加@raw_body
+      if res.body.nil? == false then @body=Helper::convert_to_utf8(@body)  else @body="" end; 
       
-      @raw_headers = Helper::convert_to_utf8(@raw_headers)
+      @raw_headers = Helper::convert_to_utf8(@raw_headers) #转码raw_headers
 
       res.each_header do |x, y| 
         newx, newy = x.dup, y.dup
