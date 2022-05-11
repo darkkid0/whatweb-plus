@@ -2,10 +2,10 @@ Plugin.define do
 name "asp" 
 authors [
 "winezero",
-
 ]
-version "0.1"
+version "0.2"
+
 matches [
-{:search=>"headers", :text=>'X-Powered-By: ASP'},
+{:search=>"headers", :regexp=>/X-Powered-By: ASP$/},
 ]
 end

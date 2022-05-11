@@ -378,15 +378,16 @@ class Target
       @raw_headers = http.raw.join("\n")
       @headers = {}
 
-      if res.body .nil? == false then @raw_body=res.body else @raw_body="" end;  #增加@raw_body
+      if res.body.nil? == false then @raw_body=res.body else @raw_body="" end;  #增加@raw_body
       @md5sum = Digest::MD5.hexdigest(@raw_body).to_s   #修复md5 hash
       @string =  Base64.strict_encode64(@raw_body).scan(/.{1,76}/).join("\n") + "\n"  #"116323821" 
       @mmh3sum = Mmh3.hash32(@string).to_s #增加mmh3 hash
       @allhashsum = "mmh3:"+mmh3sum+'-'+"md5:"+md5sum #增加所有hash和并的字符串,用于解决icon请求过多的问题
-       @raw_body = Helper::reencode(@raw_body, res['content-type']).to_s  #提取 Nokogiri 模块的reencode函数用来解码,成功修复title提取时的乱码问题,
-        
-      @body = res.body 
-      @body = Helper::convert_to_utf8(@body)  
+      @raw_body = Helper::reencode(@raw_body, res['content-type']).to_s  #提取 Nokogiri 模块的reencode函数用来解码,成功修复title提取时的乱码问题,
+      
+     @body = res.body 
+      #@body = Helper::convert_to_utf8(@body)   # 修复Can't convert to UTF-8 undefined method `force_encoding' for nil:NilClass
+      if res.body.nil? == false then @body=Helper::convert_to_utf8(@body)  else @body="" end;  #增加@raw_body
       
       @raw_headers = Helper::convert_to_utf8(@raw_headers)
 

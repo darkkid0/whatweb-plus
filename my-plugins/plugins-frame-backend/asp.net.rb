@@ -2,15 +2,11 @@ Plugin.define do
 name "asp.net"
 authors [
 "Brendan Coles <bcoles@gmail.com>", 
-
 "Andrew Horton", 
-
 "Bhavin Senjaliya", 
-
 "Andrew Horton", 
-
 ]
-version "0.8"
+version "0.9"
 description "ASP.NET is a free web framework that enables great Web applications. Used by millions of developers, it runs some of the biggest sites in the world."
 website "https://www.asp.net/"
 dorks [
@@ -18,6 +14,7 @@ dorks [
 'inurl:global.asa ext:asa "ConnectionString"'
 ]
 matches [
+{:mmh3=>'1772087922'},
 {:module=>"AnonymousIdentificationModule", :search=>"headers[set-cookie]", :regexp=>/^anonymousID=[^;]+; expires=[^;]+; path=[^;]+; HttpOnly/},
 {:module=>"AnonymousIdentificationModule", :search=>"headers[set-cookie]", :regexp=>/^chkvalues=[^;]+; expires=[^;]+; path=[^;]+; HttpOnly/},
 {:name=>"X-AspNet-Version HTTP header", :search=>"headers[x-aspnet-version]", :version=>/^(.*)$/},
