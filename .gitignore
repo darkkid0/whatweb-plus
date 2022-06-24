@@ -180,3 +180,6 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.gitignore.io/api/ruby,macos,linux,windows,eclipse
+novafinger-log/
+domain.txt
+result*.csv
