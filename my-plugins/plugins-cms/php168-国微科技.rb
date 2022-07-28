@@ -1,12 +1,12 @@
 Plugin.define do
-name "php168-国徽"
+name "php168-国微科技"
 authors [
 "winezero",
 
 ]
 version "0.1"
 matches [
-{:search=>"all", :text=>'PHP168(国徽)'},
+{:search=>"all", :text=>'国微软件'},
 {:url=>'/ckeditor/plugins/gallery/plugin.js', :text=>'php168'},
 {:url=>'/cms/install/index.html', :text=>'php168'},
 {:url=>'/ewebeditor/KindEditor.js', :text=>'php168'},
