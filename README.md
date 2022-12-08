@@ -240,3 +240,13 @@ whatweb增强版公开发布
 
 https://mp.weixin.qq.com/s/njxWqxw-TJH2MKAvOvI-kg
 
+
+
+# NEED STAR And ISSUE
+
+```
+1、右上角点击Star支持更新.
+2、ISSUE或NOVASEC提更新需求
+```
+
+![NOVASEC](doc/NOVASEC.jpg)
