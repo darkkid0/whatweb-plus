@@ -31,7 +31,7 @@ https://github.com/urbanadventurer/WhatWeb
 4、优化插件加载目录设置：
   默认加载插件路径：
     1、当前命令行环境路径.      [新增]
-    2、whatweb.exe(暂未验证) 及 whatweb.rb 路径. [新增]
+    2、whatweb.exe及 whatweb.rb 路径. [新增]
     3、lib目录的相对路径的上一级.             [默认]
     4、Windows下的用户目录下的whatweb目录.    [新增]
     5、Linux下的用户目录下的whatweb目录.      [新增]
