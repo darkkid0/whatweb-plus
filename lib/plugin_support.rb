@@ -90,18 +90,18 @@ class PluginSupport
 
     # no selection, so it's default # 没有任何选择时加载默认目录 # unless检查list是否为nil
     unless list
-      plugin_dirs.each do |d|
-        # Dir.glob("#{d}/*.rb").each { |x| PluginSupport.load_plugin(x) } # 搜集当前目录
-        # Dir.glob("#{d}/**/*.rb").each { |x| PluginSupport.load_plugin(x) } # 搜集当前目录和子目录
-        Dir.glob("#{d}/**/**/*.rb").each { |x| PluginSupport.load_plugin(x) }  # 搜集当前目录和更深子目录
+        puts  yellow("load default plugin dirs: #{plugin_dirs.inspect}")
+        plugin_dirs.each do |d|
+            # Dir.glob("#{d}/*.rb").each { |x| PluginSupport.load_plugin(x) } # 搜集当前目录
+            # Dir.glob("#{d}/**/*.rb").each { |x| PluginSupport.load_plugin(x) } # 搜集当前目录和子目录
+            Dir.glob("#{d}/**/**/*.rb").each { |x| PluginSupport.load_plugin(x) }  # 搜集当前目录和更深子目录
       end
       return Plugin.registered_plugins
     end
-
     # separate list into a and b
     #  a = make list of dir & filenames
     #  b = make list of assumed pluginnames
-    
+    puts  yellow("load custom plugin dirs: #{list.inspect}")
     list.split(',').each do |p|
       choice = PluginChoice.new
       choice.fill(p)
@@ -139,8 +139,8 @@ class PluginSupport
     plugin_dirs.each do |d|
       # if a folder, then load all files
       if File.directory?(d)
-        (Dir.glob("#{d}/*.rb") - minus_files).each { |x| PluginSupport.load_plugin(x) }
-        (Dir.glob("#{d}/**/*.rb") - minus_files).each { |x| PluginSupport.load_plugin(x) } #editor搜集二级子目录
+       # (Dir.glob("#{d}/*.rb") - minus_files).each { |x| PluginSupport.load_plugin(x) }
+       # (Dir.glob("#{d}/**/*.rb") - minus_files).each { |x| PluginSupport.load_plugin(x) } #editor搜集二级子目录
         (Dir.glob("#{d}/**/**/*.rb") - minus_files).each { |x| PluginSupport.load_plugin(x) } #editor搜集三级子目录
       elsif File.exist?(d)
         PluginSupport.load_plugin(d)

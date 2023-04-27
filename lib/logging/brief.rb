@@ -90,7 +90,6 @@ class LoggingBrief < Logging
     end
     $semaphore.synchronize do
       @f.puts brief_results_final
-      # puts "\n"
     end
   end
 end

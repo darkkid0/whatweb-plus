@@ -360,6 +360,7 @@ begin
     when '-i', '--input-file'
       input_file = arg
     when '-l', '--list-plugins'
+      #PluginSupport.load_plugins #加载默认插件文件夹
       PluginSupport.load_plugins(plugin_selection)  #加载-p --plugins参数输入的文件夹
       PluginSupport.plugin_list
       exit
@@ -367,10 +368,12 @@ begin
       plugin_selection = arg
     when '-I', '--info-plugins'  
       #'--search-plugins'参数没有填写,但其实已经被解析
+      #PluginSupport.load_plugins #加载默认插件文件夹
       PluginSupport.load_plugins(plugin_selection)  #加载-p --plugins参数输入的文件夹
       PluginSupport.plugin_info(arg.split(','))
       exit
     when '--dorks'
+      #PluginSupport.load_plugins #加载默认插件文件夹
       PluginSupport.load_plugins(plugin_selection)  #加载-p --plugins参数输入的文件夹
       PluginSupport.plugin_dorks(arg)
       exit
@@ -562,6 +565,10 @@ rescue StandardError, GetoptLong::Error => e
   exit
 end
 
+# URL
+urls = ARGV  #拷贝选项后发现urls重复
+urls = urls.uniq
+
 # sanity check # Disable colours in Windows environments when set to auto
 if RbConfig::CONFIG['host_os'] =~ /mswin|mingw/
   $use_colour = false unless $use_colour == 'always'
@@ -602,9 +609,6 @@ logging_list << LoggingElastic.new(elastic) if elastic[:use_elastic_log]
 ## Headers
 $CUSTOM_HEADERS['User-Agent'] = $USER_AGENT unless $CUSTOM_HEADERS['User-Agent']
 $CUSTOM_HEADERS.delete_if { |_k, v| v == '' }
-
-urls = ARGV
-
 
 # Initialize Scanner
 begin

@@ -54,7 +54,9 @@ class Plugin
     p = new
     p.instance_eval(&block)
     p.startup
-    # TODO: make sure required attributes are set #确保设置了所需的属性
+    # TODO: make sure required attributes are set  #确保设置了所需的属性
+
+    # Freeze the plugin attributes so they cannot be self-modified by a plugin
     Plugin.attributes.each { |symbol| p.instance_variable_get("@#{symbol}").freeze }
     Plugin.registered_plugins[p.name] = p
   end
@@ -106,12 +108,19 @@ class ScanContext
   def make_matches(target, match)
     r = []
 
-    # search location #搜索位置
-    search_context = target.body # by default #默认情况下
+    # search location ##默认搜索位置
+    search_context = target.body # by default 
     if match[:search]
       case match[:search]
       when 'all'
         search_context = target.raw_response
+      when 'uri.path'  # 合并whatweb新增位置
+        search_context = target.uri.path 
+      when 'uri.query'   # 合并whatweb新增位置
+        search_context = target.uri.query
+      when 'uri.extension'   # 合并whatweb新增位置
+        search_context = target.uri.path.scan(/\.(\w{3,6})$/).flatten.first
+        return r if search_context.nil?
       when 'headers'
         search_context = target.raw_headers
       when /headers\[(.*)\]/
@@ -191,8 +200,7 @@ class ScanContext
       # url is not relative if :url starts with /       #url不是相对的，如果:url以/开头  
       # url is relative if :url starts with [^/]        #url是相对的，如果url以[^/]开头
       # url query is only checked if :url has a ?       #只检查Url查询,如果 :url有一个?
-      # {:url="edit?action=stop" } will only match if the end of the path and the entire query matches.
-      # {:url="edit?action=stop" }   #仅当路径的末端和整个查询匹配时才匹配。  
+      # {:url="edit?action=stop" } will only match if the end of the path and the entire query matches.  #仅当路径的末端和整个查询匹配时才匹配。  
       # :url is for URIs not regexes #url用于uri而不是正则表达式
 
       is_relative = if match[:url] =~ /^\//
@@ -272,6 +280,10 @@ class ScanContext
       # if any of our matches have a url then fetch it
       # and check the matches[]
       # later we can do some caching
+      
+      # 全局变量内存优化
+      $URLARRAY.clear if $URLARRAY.size > 9999
+      $URLARRAY_PLUGINS.clear if $URLARRAY_PLUGINS.size > 9999
 
       # we have no caching, so we sort the URLs to fetch and only get 1 unique url per plugin. not great..
       if @matches
@@ -290,8 +302,6 @@ class ScanContext
                     urlmath << newbase_uri if $MAX_MATCH==true
                     
                     #开始进行内部扫描
-
-                    
                     if  $MIN_URLS
                           #puts "超级匹配模式",@base_uri.to_s
                           if (not $URLARRAY_PLUGINS.include?(@base_uri.to_s) ) 

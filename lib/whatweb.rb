@@ -106,6 +106,7 @@ end
 # Initialize HTTP Status class
 HTTP_Status.initialize
 
+
 PLUGIN_DIRS = []
 
 # Load plugins from only one location
@@ -117,10 +118,11 @@ $load_path_plugins = [
 	File.dirname(File.expand_path($PROGRAM_NAME)),   # whatweb.exe(未验证) 或whatweb.rb文件路径 
 	File.expand_path('../', __dir__),   # 当前rb文件的相对路径的上一级
 	File.join(ENV['USERPROFILE'], 'whatweb'),   # windows下的用户目录
+	File.join(ENV['HOME'], 'whatweb'),   # Linux下的用户目录
 	"/opt/whatweb", # 按照自定义安装方法设置的默认路径
 	"/usr/share/whatweb", # Makefile默认安装的路径，也在Kali中使用
 ].uniq
-# puts yellow("load_path_plugins: #{$load_path_plugins.inspect}")
+puts yellow("load_path_plugins: #{$load_path_plugins.inspect}")
 
 $load_path_plugins.each do |dir|
 	["plugins", "my-plugins"].each do |subdir|
@@ -128,4 +130,4 @@ $load_path_plugins.each do |dir|
 	  PLUGIN_DIRS << path if Dir.exist?(path)
 	end
 end
-puts  yellow("load_plugin_dirs: #{PLUGIN_DIRS.inspect}")
+# puts  yellow("load_plugin_dirs: #{PLUGIN_DIRS.inspect}") 

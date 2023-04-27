@@ -106,18 +106,6 @@ module WhatWeb
       end
     end
 
-  # def add_target_new(url)  #add_target_new 最终的添加目标URL的函数3
-  #   # TODO: REVIEW: should this use prepare_target?
-  #   if (not $URLARRAY.include?(url))  ##判断是否存在重复URL
-  #       target = Target.new(url)
-  #       unless target
-  #         error("Add Target Failed - #{url}")
-  #         return
-  #       end
-  #       $TARGET_QUEUE << target
-  #   end
-  # end
-    
     private
 
     # try to make a new Target object, may return nil
@@ -194,25 +182,20 @@ module WhatWeb
       # http, https, ftp, etc
       push_to_urllist = []
 
-	# 对域名添加添加http协议头,https协议头
-      tmp_url_list = []
-        url_list.map do |x|
-          if File.exist?(x)
-            tmp_url_list << x
-          else
-            if x !~ %r{^[a-z]+:\/\/}
-              # add missing URI prefix
-              tmp_url_list << 'http://' + x
-              tmp_url_list << 'https://' + x
-            else
-              tmp_url_list << x
-            end
-          end
-        end
-	# puts tmp_url_list
+      # 对域名添加添加http协议头,https协议头
+      url_list = url_list.flat_map do |x|
+        if File.exist?(x)
+            x
+        elsif x !~ %r{^[a-z]+:\/\/}
+           # add missing URI prefix
+           ["http://#{x}", "https://#{x}"]
+        else
+           x
+           end
+      end
 	
       # TODO: refactor this
-      url_list = tmp_url_list.map do |x|
+      url_list = url_list.map do |x|
         if File.exist?(x)
           x
         else
@@ -221,8 +204,9 @@ module WhatWeb
           x =  x.gsub( '%insert%' ,opts[:url_pattern] ) unless opts[:url_pattern].to_s.eql?('')
           # add prefix & suffix
           x = "#{opts[:url_prefix]}#{x}#{opts[:url_suffix]}"
-          
+
           # need to move this into a URI parsing function
+          #
           # check for URI prefix
           # if x !~ %r{^[a-z]+:\/\/}
           #   # add missing URI prefix
@@ -247,6 +231,7 @@ module WhatWeb
           x
         end
       end
+
       url_list += push_to_urllist unless push_to_urllist.empty?
       # compact removes nils
       url_list = url_list.flatten.compact #.uniq
