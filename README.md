@@ -2,8 +2,6 @@
 
 whatweb-plus 是基于国际通用的 Whatweb 优化改造的国内版Web指纹识别工具。
 
-
-
 主体程序:
 https://github.com/winezer0/whatweb-plus
 
