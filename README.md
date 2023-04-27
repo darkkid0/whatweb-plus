@@ -21,28 +21,55 @@ https://github.com/urbanadventurer/WhatWeb
 对指纹扫描插件进行分类规划，主要是进行指纹文件规划和规则合并整理。
 ```
 
-# 更新记录
+# 功能支持
+
+```
+1、多种插件分类和加载方案：
+	1、支持多级目录插件分类和加载.[新增]
+	2、支持按插件名称 指定加载、 [原生]
+	3、支持按插件目录 指定加载、 [原生]
+2、最小化重复目标请求.          [新增]
+3、提供exe程序直接运行.         [新增]
+4、优化插件加载目录设置：
+  默认加载插件路径：
+    1、当前命令行环境路径.      [新增]
+    2、whatweb.exe(暂未验证) 及 whatweb.rb 路径. [新增]
+    3、lib目录的相对路径的上一级.             [默认]
+    4、Windows下的用户目录下的whatweb目录.    [新增]
+    5、Linux下的用户目录下的whatweb目录.      [新增]
+    6、linux自己安装的/opt/whatweb 目录.     [新增]
+    7、Kali默认安装的/usr/share/whatweb     [默认]
+  注意：默认加载插件路径下的plugins或my-plugins目录.   [优化]
+  注意：建议同时只使用一种默认路径方式,以免插件重复.
+
+5、支持对输入的域名,同时添加http和https协议头进行测试.   [优化]
+
+```
+
+
+
+# 最近更新
+
     20230427 更新whatweb VERSION = 0.5.5.14 ,合并最新版本代码, 优化插件加载目录配置
+        1 合并whatweb目前最新代码，增加了几种匹配位置
+          when 'uri.path'  # 合并whatweb新增位置
+            search_context = target.uri.path 
+          when 'uri.query'   # 合并whatweb新增位置
+            search_context = target.uri.query
+          when 'uri.extension'   # 合并whatweb新增位置
+            search_context = target.uri.path.scan(/\.(\w{3,6})$/).flatten.first
     
-    20220418 更新whatweb VERSION = 0.5.5.13 ,并发布新版本的windows下的可执行文件
-    
-    20220418 对于输入没有协议头的域名,从默认的添加http协议头变为同时添加http和https协议头
-    
-    20210819 更新8000+指纹插件,大部分由于名称问题重复,需要进一步处理。
-        已合并指纹来源:
-        应用指纹:wappalyzer|dismap|tidefinger-python3|tidefinger-python2|Ehole|Finger|   
-        WAF指纹:Fscan+glass    
-        致谢开源指纹的各项目工程师！！！
-        
-    20210820 修复shiro指纹的https支持
-    20210821 增加要给fastjson指纹插件(未找到测试站点)
-    20210821 重新规划插件存放格式： plugins文件夹内仅保存基本插件,其他应用插件存放于my-plugins文件夹
-    20210821 重新规划插件分类方式: 可使用多级目录实现插件分类, (最高3级目录)。
-    20210822 新增指纹匹配优化参数，减少主动识别时的指纹数量,具体请查看[新增参数说明]
+        2 优化自动加载默认插件路径，让exe下也能够自动加载插件
+        3 支持多层子目录插件自动加载, 无三层插件加载限制.
+        4 内存重复扫描过滤阈值设定为9999,超出阈值清空.
 
 
 
-# 新增参数说明
+历史更新记录: [更新记录](doc/更新记录.md)
+
+
+
+# 新增参数
 
 ```
 -Z --no-base-path
@@ -57,24 +84,21 @@ https://github.com/urbanadventurer/WhatWeb
 -X  --no-max-match
     新增，忽略匹配:url要求，默认True , 不建议关闭 
     whatweb-plus 匹配规则时,默认会忽略:url需要相同的前提，形成更多的结果匹配，需要高精度的匹配时可以开启
-
 ```
 
-![image](https://user-images.githubusercontent.com/46115146/130211813-fc6343c8-43af-49b6-be64-8786b050a280.png)
 
- 
 
-# 其他注意事项
+# 注意事项
 
 ```
 1.关于运行环境
     使用ruby运行whatweb脚本，需要安装mmh3模块 [gem install mmh3]
     windows下有exe打包版本，其他系统未打包成功，需要安装ruby环境（kali ruby2.5-2.7 测试通过） 
-    whatweb.exe为了缩小打包体积，仅包含简单的基础插件，请-p 指定插件目录调用。
+    whatweb.exe为了缩小打包体积，仅包含简单的基础插件
 
 2.关于WAF指纹识别
 	支持WAf指纹，但没有添加会触发waf的请求,需要用户主动请求会触发waf的请求.
-	如whatweb http://www.baidu.com/index?/etc/passed
+	如 whatweb http://www.baidu.com/index?/etc/passed
 ```
 
 # 程序安装
@@ -100,8 +124,7 @@ ERROR:  Error installing bundle:
 Ruby and Whatweb Install on Windows
 https://mp.weixin.qq.com/s/ZjQfsovGP-GK_xUYuP7M-A
 
-windows下可以直接使用打包好的EXE程序,不过相比直接使用ruby调用whatweb会慢一些。
-
+windows下可以直接使用打包好的EXE程序,但相比直接使用ruby调用会慢一些。
 ```
 
 ## centOS7 环境安装ruby
@@ -179,12 +202,12 @@ whatweb www.baidu.com -X -Y -Z
 
 快捷运行配置--弃用
 apt-get remove whatweb #卸载kali whatweb可选
-mv whatweb /opt/whatweb  【自定义目录】
+mv whatweb /opt/whatweb  【默认自定义目录】
 ln -s  /opt/whatweb/whatweb /usr/bin
 
 快捷运行配置--更优的解决方案
 cp whatweb whatweb+
-mv whatweb /opt/whatweb 【自定义目录】
+mv whatweb /opt/whatweb  【默认自定义目录】
 ln -s  /opt/whatweb/whatweb+ /usr/bin
 whatweb+ www.baidu.com -X -Y -Z
 ```
