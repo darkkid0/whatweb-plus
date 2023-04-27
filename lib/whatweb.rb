@@ -95,8 +95,6 @@ $URLARRAY_PLUGINS = Array.new                #添加数组存放插件访问的�
 $BASE_PATH =true                              #是否开启$BASEPATH支持
                                                              #需要添加一个参数开关。控制其关闭( true  false)
 $BASEPATH =["/favicon.ico","/","/robots.txt","/license.txt","/readme.txt","/logo.gif","/index.html"]     # 添加数组存储经常访问的路径
-#"/images/favicon.ico","/admin/images/logo.png","/html/index.html","/pic/logo.png" 二级目录路径会影响插件里面的URL追加，放弃
-
 
 # Ruby Version Compatability
 if Gem::Version.new(RUBY_VERSION) < Gem::Version.new(2.0)
