@@ -39,6 +39,6 @@ end
 
 # Needed for debugging WhatWeb
 group :development do
-  gem 'pry','0.13.1' :require => false
-  gem 'rb-readline','0.5.5' :require => false # needed by pry on some systems
+  gem 'pry','0.13.1', :require => false
+  gem 'rb-readline','0.5.5', :require => false # needed by pry on some systems
 end
