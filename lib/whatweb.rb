@@ -113,7 +113,7 @@ PLUGIN_DIRS = []
 # this will work when whatweb is a symlink in /usr/bin/
 $load_path_plugins = [
  	Dir.pwd, # 当前命令行环境路径
-	File.dirname(File.expand_path($PROGRAM_NAME)),   # whatweb.exe(未验证) 或whatweb.rb文件路径 
+	File.dirname(File.expand_path($PROGRAM_NAME)),   # whatweb.exe或whatweb.rb文件路径 
 	File.expand_path('../', __dir__),   # 当前rb文件的相对路径的上一级
 	File.join(ENV['USERPROFILE'], 'whatweb'),   # windows下的用户目录
 	File.join(ENV['HOME'], 'whatweb'),   # Linux下的用户目录
