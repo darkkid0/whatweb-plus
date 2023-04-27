@@ -18,23 +18,23 @@ gem 'json'
 
 # MongoDB logging - optional
 group :mongo do
-  #gem 'mongo'
-  #gem 'rchardet'
+  # gem 'mongo'
+  # gem 'rchardet'
 end
 
 # Character set detection - optional
 group :rchardet do
-  #gem 'rchardet'
+  # gem 'rchardet'
 end
 
 # Development dependencies required for tests
 group :test do
-  gem 'rake'
-  gem 'minitest'
-  gem 'rubocop'
-  gem 'rdoc'
-  gem 'bundler-audit'
-  gem 'simplecov', require: false
+  # gem 'rake'
+  # gem 'minitest'
+  # gem 'rubocop'
+  # gem 'rdoc'
+  # gem 'bundler-audit'
+  # gem 'simplecov', require: false
 end
 
 # Needed for debugging WhatWeb
