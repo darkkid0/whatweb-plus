@@ -88,13 +88,12 @@ class PluginSupport
     plugin_dirs = PLUGIN_DIRS.clone
     plugin_dirs.map { |p| p = File.expand_path(p) }
 
-    # no selection, so it's default
-    # 没有任何选择时加载默认目录
+    # no selection, so it's default # 没有任何选择时加载默认目录 # unless检查list是否为nil
     unless list
       plugin_dirs.each do |d|
-        Dir.glob("#{d}/*.rb").each { |x| PluginSupport.load_plugin(x) }
-        Dir.glob("#{d}/**/*.rb").each { |x| PluginSupport.load_plugin(x) } #editor搜集二级子目录
-        Dir.glob("#{d}/**/**/*.rb").each { |x| PluginSupport.load_plugin(x) } #editor搜集三级子目录
+        # Dir.glob("#{d}/*.rb").each { |x| PluginSupport.load_plugin(x) } # 搜集当前目录
+        # Dir.glob("#{d}/**/*.rb").each { |x| PluginSupport.load_plugin(x) } # 搜集当前目录和子目录
+        Dir.glob("#{d}/**/**/*.rb").each { |x| PluginSupport.load_plugin(x) }  # 搜集当前目录和更深子目录
       end
       return Plugin.registered_plugins
     end

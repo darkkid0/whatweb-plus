@@ -113,13 +113,19 @@ PLUGIN_DIRS = []
 # __dir__ follows symlinks
 # this will work when whatweb is a symlink in /usr/bin/
 $load_path_plugins = [
-	File.expand_path('../', __dir__),
-	"/usr/share/whatweb" # location Makefile installs into, also used in Kali
-]
+ 	Dir.pwd, # 当前命令行环境路径
+	File.dirname(File.expand_path($PROGRAM_NAME)),   # whatweb.exe(未验证) 或whatweb.rb文件路径 
+	File.expand_path('../', __dir__),   # 当前rb文件的相对路径的上一级
+	File.join(ENV['USERPROFILE'], 'whatweb'),   # windows下的用户目录
+	"/opt/whatweb", # 按照自定义安装方法设置的默认路径
+	"/usr/share/whatweb", # Makefile默认安装的路径，也在Kali中使用
+].uniq
+# puts yellow("load_path_plugins: #{$load_path_plugins.inspect}")
 
 $load_path_plugins.each do |dir|
-	if Dir.exist?(File.expand_path("plugins", dir)) and  Dir.exist?(File.expand_path("my-plugins", dir))
-		PLUGIN_DIRS << File.expand_path("plugins", dir)
-		PLUGIN_DIRS << File.expand_path("my-plugins", dir)
+	["plugins", "my-plugins"].each do |subdir|
+	  path = File.expand_path(subdir, dir)
+	  PLUGIN_DIRS << path if Dir.exist?(path)
 	end
 end
+puts  yellow("load_plugin_dirs: #{PLUGIN_DIRS.inspect}")
