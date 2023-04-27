@@ -58,7 +58,6 @@ https://github.com/urbanadventurer/WhatWeb
     新增，忽略匹配:url要求，默认True , 不建议关闭 
     whatweb-plus 匹配规则时,默认会忽略:url需要相同的前提，形成更多的结果匹配，需要高精度的匹配时可以开启
 
-注意:URL去重使用全局数组和临时数组实现, 对于【超级超级超级超级大量】请求的情况建议定时优化。
 ```
 
 ![image](https://user-images.githubusercontent.com/46115146/130211813-fc6343c8-43af-49b6-be64-8786b050a280.png)
