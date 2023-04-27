@@ -26,7 +26,7 @@ https://github.com/urbanadventurer/WhatWeb
     
     20220418 更新whatweb VERSION = 0.5.5.13 ,并发布新版本的windows下的可执行文件
     
-    20220418 对于输入没有协议头的域名,从默认的添加http协议头变为同时添加http和https协议头。Example:输入域名 www.baidu.com 将请求:http://www.baidu.com 与 https://www.baidu.com
+    20220418 对于输入没有协议头的域名,从默认的添加http协议头变为同时添加http和https协议头
     
     20210819 更新8000+指纹插件,大部分由于名称问题重复,需要进一步处理。
         已合并指纹来源:
