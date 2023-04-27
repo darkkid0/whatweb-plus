@@ -122,7 +122,7 @@ $load_path_plugins = [
 	"/opt/whatweb", # 按照自定义安装方法设置的默认路径
 	"/usr/share/whatweb", # Makefile默认安装的路径，也在Kali中使用
 ].uniq
-puts yellow("load_path_plugins: #{$load_path_plugins.inspect}")
+# puts yellow("load_path_plugins: #{$load_path_plugins.inspect}")
 
 $load_path_plugins.each do |dir|
 	["plugins", "my-plugins"].each do |subdir|
