@@ -273,6 +273,10 @@ class ScanContext
     # if the plugin has a passive method, use it
     results += passive_scan if @plugin.passive
 
+    # 全局变量内存优化
+    $URLARRAY.clear if $URLARRAY.size > 9999
+    $URLARRAY_PLUGINS.clear if $URLARRAY_PLUGINS.size > 9999
+    
     # if the plugin has an aggressive method and we're in aggressive mode, use it
     # or if we're guessing all URLs
     if ($AGGRESSION == 3 && results.any?) || ($AGGRESSION == 4)
@@ -281,10 +285,6 @@ class ScanContext
       # and check the matches[]
       # later we can do some caching
       
-      # 全局变量内存优化
-      $URLARRAY.clear if $URLARRAY.size > 9999
-      $URLARRAY_PLUGINS.clear if $URLARRAY_PLUGINS.size > 9999
-
       # we have no caching, so we sort the URLs to fetch and only get 1 unique url per plugin. not great..
       if @matches
         urlmath = Array.new  #临时数组,杜绝同一个插件中多个相同URL的多次访问
