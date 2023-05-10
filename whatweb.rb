@@ -92,6 +92,7 @@ AUTHENTICATION:
   --user, -u=<user:password>\tHTTP basic authentication.
   --cookie, -c=COOKIES\t\tUse cookies, e.g. 'name=value; name2=value2'.
   --cookie-jar=FILE\t\tRead cookies from a file.
+  --update-cookies\t\tUpdate cookies according to responses.
 
 PROXY:
   --proxy, -P\t\t\t<hostname[:port]> Set proxy hostname and port.
@@ -347,6 +348,7 @@ opts = GetoptLong.new(
   ['--header', '-H', GetoptLong::REQUIRED_ARGUMENT],
   ['--cookie', '-c', GetoptLong::REQUIRED_ARGUMENT],
   ['--cookie-jar', GetoptLong::REQUIRED_ARGUMENT],
+  ['--update-cookies', GetoptLong::NO_ARGUMENT],
   ['--user', '-u', GetoptLong::REQUIRED_ARGUMENT],
   ['--wait', GetoptLong::REQUIRED_ARGUMENT],
   ['--debug', GetoptLong::NO_ARGUMENT],
@@ -530,6 +532,8 @@ begin
       rescue
         raise("Could not read cookies from #{arg}.")
       end
+    when '--update-cookies'
+      $UPDATE_COOKIES = true
     when '-u', '--user'
       unless arg.include?(':')
         raise("Incorrect credentials format.")
